@@ -20,3 +20,18 @@ public:
         return false;
     }
 };
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        auto fast = head;
+        auto slow = head;
+        while (fast) {
+            if (!fast->next) return false;
+            fast = fast->next->next;
+            slow = slow->next;
+            if (slow == fast) return true;
+        }
+        return false;
+    }
+};
