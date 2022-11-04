@@ -29,5 +29,18 @@ class Solution {
     bool isSameTree(TreeNode* p, TreeNode* q) {
         preorder(p, q);
         return isSame_;
+     
+        /// or this one
+        if (p != nullptr && q == nullptr) {
+            return false;
+        } else if (p == nullptr && q != nullptr) {
+            return false;
+        } else if (p == nullptr && q == nullptr) {
+            return true;
+        } else if (isSameTree(p->left,q->left) && isSameTree(p->right,q->right) && p->val == q->val) {
+            return true;
+        } else {
+            return false;
+        }
     }
 };
